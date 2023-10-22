@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "co.edu.unipiloto.ecoreciclaje_equipo05"
-        minSdk 27
+        minSdk 26
         targetSdk 33
         versionCode 1
         versionName "1.0"
