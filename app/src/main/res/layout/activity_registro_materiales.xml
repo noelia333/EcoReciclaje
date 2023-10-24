@@ -13,8 +13,12 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@drawable/fondo"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-16dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -30,16 +34,19 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="410dp"
-        android:layout_height="182dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="224dp"
         android:background="@null"
         android:scaleType="centerCrop"
         android:src="@drawable/polygon_2"
+        app:layout_constraintBottom_toTopOf="@+id/choose_item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
+        android:id="@+id/imageView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -50,32 +57,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="220dp"
         android:layout_height="44dp"
-        android:layout_marginTop="204dp"
-        android:background="#D9D9D9"
+        android:layout_marginTop="200dp"
+        android:background="#A3D9D9D9"
         android:gravity="center"
-        android:textColor="@color/black"
-        android:text="Registro materiales"
+        android:text="Registro Materiales"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="16dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.083"
+        app:layout_constraintHorizontal_bias="0.246"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
-
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="163dp"
+        android:layout_width="wrap_content"
         android:layout_height="26dp"
         android:layout_marginTop="20dp"
-        android:text="Ingrese el valor"
+        android:text="Ingrese la cantidad"
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.189"
         app:layout_constraintStart_toStartOf="@+id/imageView"
@@ -84,122 +92,93 @@
     <EditText
         android:id="@+id/Peso"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_marginTop="4dp"
-        android:hint="Ingrese el peso del producto en KG"
+        android:hint="Ingrese la cantidad del producto"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.373"
+        app:layout_constraintHorizontal_bias="0.306"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
-        android:id="@+id/textView5"
-        android:layout_width="81dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="116dp"
-        android:text="Añadir"
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Elija el material"
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintHorizontal_bias="0.165"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Peso" />
 
-    <Button
-        android:id="@+id/Carton"
-        android:layout_width="165dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="44dp"
+    <Spinner
+        android:id="@+id/choose_item"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
         android:layout_marginTop="16dp"
-        android:backgroundTint="#C8973A"
-        android:drawableEnd="@drawable/carton"
-        android:text="carton y papel"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <Button
-        android:id="@+id/Cobre"
-        android:layout_width="165dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="#6C6882"
-        android:drawableEnd="@drawable/cobre"
-        android:text="Cobre"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Carton" />
-
-    <Button
-        android:id="@+id/Vidrio"
-        android:layout_width="165dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="8dp"
-        android:backgroundTint="#56BCBC"
-        android:drawableEnd="@drawable/vidrio"
-        android:text="Vidrio"
-        android:textStyle="bold"
+        android:entries="@array/material"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/Carton"
-        tools:layout_editor_absoluteY="411dp" />
+        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
-    <Button
-        android:id="@+id/Añadir_categoria"
-        android:layout_width="165dp"
-        android:layout_height="56dp"
-        android:backgroundTint="#B7BA9B"
-        android:drawableEnd="@drawable/anadircategoria"
-        android:text="Vidrio"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.216"
-        app:layout_constraintStart_toEndOf="@+id/Cobre"
-        tools:layout_editor_absoluteY="479dp" />
-
-    <TableLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="90dp"
+        android:layout_marginTop="36dp"
+        android:text="Elija el mes"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.146"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choose_item" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:entries="@array/mes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:backgroundTint="#A3C679"
         android:gravity="center"
-        android:orientation="vertical"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:text="Registre el material"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner2"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="El valor ganado es: "
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/Cobre">
-
-        <!-- Fila 1 -->
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center">
-            <!-- Columna 1 -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Material" />
-
-            <!-- Columna 2 -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Cantidad" />
-
-            <!-- Columna 3 -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Valor" />
-        </TableRow>
-
-        <!-- Puedes agregar más filas aquí con el mismo formato -->
-    </TableLayout>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
