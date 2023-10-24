@@ -16,6 +16,9 @@
             android:name=".Inicio_sesion"
             android:exported="false" />
         <activity
+            android:name=".Perfil_usuario"
+            android:exported="false" />
+        <activity
             android:name=".pantalla_consejos"
             android:exported="false" />
         <activity
