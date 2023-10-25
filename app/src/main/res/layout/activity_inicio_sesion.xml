@@ -54,13 +54,13 @@
             app:srcCompat="@drawable/iconopersona" />
 
         <EditText
-            android:id="@+id/editTextText"
+            android:id="@+id/ext_name"
             android:layout_width="280dp"
             android:layout_height="48dp"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="text"
-            android:hint="Ingrese su cedula"/>
+            android:hint="Ingrese su cedula"
+            android:inputType="text" />
     </LinearLayout>
 
     <LinearLayout
@@ -76,6 +76,7 @@
             app:srcCompat="@drawable/iconollave" />
 
         <EditText
+            android:id="@+id/ext_password"
             android:layout_width="280dp"
             android:layout_height="48dp"
             android:layout_weight="1"
@@ -85,7 +86,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_iniciar_sesion"
         android:layout_width="394dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
