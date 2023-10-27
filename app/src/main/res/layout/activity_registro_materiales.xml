@@ -31,19 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="410dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="224dp"
-        android:background="@null"
-        android:scaleType="centerCrop"
-        android:src="@drawable/polygon_2"
-        app:layout_constraintBottom_toTopOf="@+id/choose_item"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <ImageView
         android:id="@+id/imageView16"
@@ -62,7 +50,7 @@
         android:id="@+id/textView3"
         android:layout_width="220dp"
         android:layout_height="44dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="180dp"
         android:background="#A3D9D9D9"
         android:gravity="center"
         android:text="Registro Materiales"
@@ -79,7 +67,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="26dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="Ingrese la cantidad"
         android:textColor="@color/black"
         android:textSize="20dp"
@@ -104,7 +92,7 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="10dp"
         android:text="Elija el material"
         android:textColor="@color/black"
         android:textSize="20dp"
@@ -119,7 +107,7 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:entries="@array/material"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.153"
@@ -127,10 +115,36 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Elija el dia"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.147"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/choose_item" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:entries="@array/dia"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="10dp"
         android:text="Elija el mes"
         android:textColor="@color/black"
         android:textSize="20dp"
@@ -138,19 +152,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.146"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choose_item" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <Spinner
         android:id="@+id/spinner2"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:entries="@array/mes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.153"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
 
     <Button
         android:id="@+id/button"
