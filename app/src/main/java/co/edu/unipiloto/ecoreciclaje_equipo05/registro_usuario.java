@@ -2,6 +2,7 @@ package co.edu.unipiloto.ecoreciclaje_equipo05;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
