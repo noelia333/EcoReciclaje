@@ -13,19 +13,30 @@
         android:scaleType="centerCrop"
         android:src="@drawable/perfildeusuario"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivDevolver"
+        android:layout_width="30dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/retroceso"
+        app:layout_constraintEnd_toEndOf="@+id/imageView10"
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView9" />
 
     <ImageView
         android:id="@+id/imageView11"
         android:layout_width="46dp"
         android:layout_height="52dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/name"
-        app:layout_constraintEnd_toStartOf="@+id/textView22"
-        app:layout_constraintHorizontal_bias="0.692"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.796"
+        app:layout_constraintStart_toEndOf="@+id/ivDevolver"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -33,15 +44,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="36dp"
         android:text="Nombre de usuario"
         android:textColor="@color/white"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.445"
+        app:layout_constraintHorizontal_bias="0.647"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView11" />
 
     <TextView
         android:id="@+id/tvCategoria"
@@ -67,9 +76,9 @@
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.539"
+        app:layout_constraintHorizontal_bias="0.53"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imvReciclable" />
+        app:layout_constraintTop_toBottomOf="@+id/imvMaterialReciclable" />
 
     <TextView
         android:id="@+id/tvEstadistica"
@@ -99,7 +108,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imvConsejos" />
 
     <ImageView
-        android:id="@+id/imvReciclable"
+        android:id="@+id/imvMaterialReciclable"
         android:layout_width="132dp"
         android:layout_height="131dp"
         android:layout_marginTop="200dp"
