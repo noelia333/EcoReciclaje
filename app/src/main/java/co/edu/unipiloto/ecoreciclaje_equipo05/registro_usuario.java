@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,18 +15,54 @@ import android.content.Intent;
 public class registro_usuario extends AppCompatActivity {
     Button btnRegistrarse;
 
+    EditText etNombres, etApellidos, etCedula, etCorreo, etContraseña, etValidacion;
+
+    CheckBox check;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_usuario);
 
         btnRegistrarse=findViewById(R.id.btn_registrarse);
+
+        etNombres = findViewById(R.id.etIngreNombre);
+        etApellidos = findViewById(R.id.etIngreApellidos);
+        etCedula = findViewById(R.id.etIngreID);
+        etCorreo = findViewById(R.id.etIngreCorreo);
+        etContraseña = findViewById(R.id.etIngreContraseña);
+        etValidacion = findViewById(R.id.etConfiContraseña);
+
+        check = findViewById(R.id.check_terminos);
+
+        Intent registroUsuario=new Intent(getApplicationContext(),Inicio_sesion.class);
+
         btnRegistrarse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent registroUsuario=new Intent(getApplicationContext(),Inicio_sesion.class);
+                String nombres = etNombres.getText().toString();
+                String apellidos = etApellidos.getText().toString();
+                String cedula = etCedula.getText().toString();
+                String correo = etCorreo.getText().toString();
+                String contraseña = etContraseña.getText().toString();
+                String validacionContraseña = etValidacion.getText().toString();
 
-                startActivity(registroUsuario);
+                /*if(check.isSelected() && nombres.isEmpty() || apellidos.isEmpty() || cedula.isEmpty() || correo.isEmpty() || contraseña.isEmpty() || validacionContraseña.isEmpty()  ) {
+                    Toast.makeText(getBaseContext(), "Todos los campos deben llenarse", Toast.LENGTH_LONG).show();
+                } else if (!check.isChecked()) {
+                    Toast.makeText(getBaseContext(), "Debes aceptar los terminos y condiciones", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getBaseContext(),"Usuario creado con exito",Toast.LENGTH_LONG).show();
+                    startActivity(registroUsuario);
+                }*/
+
+                if (nombres.isEmpty() || apellidos.isEmpty() || cedula.isEmpty() || correo.isEmpty() || contraseña.isEmpty() || validacionContraseña.isEmpty() ) {
+                    Toast.makeText(this, "Debe llenar todos los campos", Toast.LENGTH_SHORT).show();
+                } else if (!check.isChecked()) {
+                    Toast.makeText(this, "Falta aceptar los términos y condiciones", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "Usuario creado con éxito", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
