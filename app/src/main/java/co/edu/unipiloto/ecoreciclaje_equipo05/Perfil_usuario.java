@@ -22,48 +22,44 @@ public class Perfil_usuario extends AppCompatActivity {
 
 
         // IMAGEN CONSEJOS
-        imvConsejos=findViewById(R.id.imvConsejos);
+        imvConsejos = findViewById(R.id.imvConsejos);
+        Intent pantalla_consejos = new Intent(getApplicationContext(), pantalla_consejos.class);
         imvConsejos.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent Perfil_usuario=new Intent(getApplicationContext(),pantalla_consejos.class);
-
-                startActivity(Perfil_usuario);
+            public void onClick(View view) {
+                startActivity(pantalla_consejos);
             }
         });
 
         // TEXTO CONSEJOS
-        tvConsejos=findViewById(R.id.tvConsejos);
+        tvConsejos = findViewById(R.id.tvConsejos);
         tvConsejos.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent Perfil_usuario=new Intent(getApplicationContext(),pantalla_consejos.class);
-
-                startActivity(Perfil_usuario);
+            public void onClick(View view) {
+                startActivity(pantalla_consejos);
             }
         });
 
-        // IMAGEN MATERIAL RECICLABLE
 
-        imvMaterialReciclable=findViewById(R.id.imvMaterialReciclable);
+        // IMAGEN MATERIAL RECICLABLE
+        imvMaterialReciclable  = findViewById(R.id.imvMaterialReciclable);
+        Intent registro_materiales= new Intent(getApplicationContext(),registro_materiales.class);
         imvMaterialReciclable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Perfil_usuario=new Intent(getApplicationContext(),registro_materiales.class);
-
-                startActivity(Perfil_usuario);
+                startActivity(registro_materiales);
             }
         });
 
         // TEXTO MATERIAL RECICLABLE
-        tvMaterialRecicable=findViewById(R.id.tvMaterialRecicable);
+        tvMaterialRecicable = findViewById(R.id.tvMaterialRecicable);
         tvMaterialRecicable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent Perfil_usuario=new Intent(getApplicationContext(),registro_materiales.class);
-                startActivity(Perfil_usuario);
+                startActivity(registro_materiales);
             }
         });
+
 
         // IMAGEN ESTADISTICAS
 
