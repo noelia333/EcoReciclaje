@@ -57,11 +57,12 @@ public class registro_usuario extends AppCompatActivity {
                 }*/
 
                 if (nombres.isEmpty() || apellidos.isEmpty() || cedula.isEmpty() || correo.isEmpty() || contraseña.isEmpty() || validacionContraseña.isEmpty() ) {
-                    Toast.makeText(this, "Debe llenar todos los campos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(registro_usuario.this, "Debe llenar todos los campos", Toast.LENGTH_SHORT).show();
                 } else if (!check.isChecked()) {
-                    Toast.makeText(this, "Falta aceptar los términos y condiciones", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(registro_usuario.this, "Falta aceptar los términos y condiciones", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(this, "Usuario creado con éxito", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(registro_usuario.this, "Usuario creado con éxito", Toast.LENGTH_SHORT).show();
+                    startActivity(registroUsuario);
                 }
             }
         });

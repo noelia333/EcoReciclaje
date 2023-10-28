@@ -10,18 +10,16 @@ import android.widget.TextView;
 
 public class Perfil_usuario extends AppCompatActivity {
 
-    ImageView imvConsejos;
+    ImageView imvConsejos,imvMaterialReciclable,imvEstadistica;
 
-    ImageView imvMaterialReciclable;
+    TextView tvConsejos,tvMaterialRecicable,tvEstadistica;
 
-    TextView tvConsejos;
-
-    TextView tvMaterialRecicable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil_usuario);
+
 
         // IMAGEN CONSEJOS
         imvConsejos=findViewById(R.id.imvConsejos);
@@ -66,6 +64,37 @@ public class Perfil_usuario extends AppCompatActivity {
                 startActivity(Perfil_usuario);
             }
         });
+
+        // IMAGEN ESTADISTICAS
+
+        imvEstadistica=findViewById(R.id.imvEstadistica);
+
+
+        Intent pantalla_estadistica= new Intent(getApplicationContext(), pantalla_estadisticas.class);
+        imvEstadistica.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(pantalla_estadistica);
+
+            }
+        });
+
+
+        // TEXTO ESTADISTICAS
+
+        tvEstadistica=findViewById(R.id.tvEstadistica);
+
+        tvEstadistica.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(pantalla_estadistica);
+            }
+        });
+
+
+
 
     }
 }
