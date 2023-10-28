@@ -18,9 +18,6 @@ public class Perfil_usuario extends AppCompatActivity {
 
     TextView tvMaterialRecicable;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
