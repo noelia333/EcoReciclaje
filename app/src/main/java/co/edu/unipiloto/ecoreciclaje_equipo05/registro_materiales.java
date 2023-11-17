@@ -2,14 +2,26 @@ package co.edu.unipiloto.ecoreciclaje_equipo05;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 public class registro_materiales extends AppCompatActivity {
 
     ImageView imagenRetroceder;
+
+    TextView tvTotal;
+    EditText Valorpeso;
+
+    Button btn_registrar_material;
+    Spinner Spi_intem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +29,10 @@ public class registro_materiales extends AppCompatActivity {
         setContentView(R.layout.activity_registro_materiales);
 
         imagenRetroceder = findViewById(R.id.imvRetroceder);
+        Spi_intem=findViewById(R.id.choose_item);
+        tvTotal=findViewById(R.id.tvtotal);
+        Valorpeso=findViewById(R.id.Peso);
+        btn_registrar_material=findViewById(R.id.btn_registe_material);
 
         imagenRetroceder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,6 +43,54 @@ public class registro_materiales extends AppCompatActivity {
             }
         });
 
+        //String[] material={"Carton","Plastico","Vidrio", "Papel"};
+        ArrayAdapter<CharSequence> Adaptador= ArrayAdapter.createFromResource
+                (this, R.array.material,android.R.layout.simple_spinner_item);
+        Adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                //(this, R.array.material, android.R.layout.simple_spinner_item);
 
+        Spi_intem.setAdapter(Adaptador);
+
+        btn_registrar_material.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calularValor();
+            }
+        });
+    }
+
+    public void calularValor() {
+        int peso;
+        int carton, plastico, vidrio, metales;
+        String select;
+        peso = Integer.parseInt(Valorpeso.getText().toString());
+
+
+        select = Spi_intem.getSelectedItem().toString();
+
+        if (select.equals("Papel y carton")) {
+            carton = 1000 * peso;
+            tvTotal.setText(String.valueOf(carton));
+
+        } else {
+            if (select.equals("Plasticos")) {
+                System.out.println(select);
+                plastico = 2000 * peso;
+                tvTotal.setText(String.valueOf(plastico));
+
+            } else {
+                if (select.equals("Vidrio")) {
+                    System.out.println(select);
+                    vidrio = 3000 * peso;
+                    tvTotal.setText(String.valueOf(vidrio));
+
+                } else {
+                    if (select.equals("Metales")) {
+                        metales = 4000 * peso;
+                        tvTotal.setText(String.valueOf(metales));
+                    }
+                }
+            }
+        }
     }
 }

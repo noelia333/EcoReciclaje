@@ -3,6 +3,7 @@ package co.edu.unipiloto.ecoreciclaje_equipo05;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
@@ -11,6 +12,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Intent;
+
+
+import co.edu.unipiloto.ecoreciclaje_equipo05.R;
 
 public class registro_usuario extends AppCompatActivity {
     Button btnRegistrarse;
@@ -66,8 +70,45 @@ public class registro_usuario extends AppCompatActivity {
                 }
             }
         });
+    }
 
 
+
+    public boolean validarUsuario(){
+        boolean validarDate=true;
+
+        if (etNombres.getText().toString().isEmpty()){
+            etNombres.setBackgroundColor(Color.RED);
+            validarDate=false;
+        }
+        if (etApellidos.getText().toString().isEmpty()){
+            etApellidos.setBackgroundColor(Color.RED);
+            validarDate=false;
+        }
+        if (etCedula.getText().toString().isEmpty()){
+            etCedula.setBackgroundColor(Color.RED);
+            validarDate=false;
+        }
+        if (etCorreo.getText().toString().isEmpty()){
+            etCorreo.setBackgroundColor(Color.RED);
+            validarDate=false;
+        }
+        if (etContraseña.getText().toString().isEmpty()){
+            etContraseña.setBackgroundColor(Color.RED);
+            validarDate=false;
+        }
+        if (etValidacion.getText().toString().isEmpty()){
+            etValidacion.setBackgroundColor(Color.RED);
+            validarDate=false;
+        }
+        if (!etContraseña.getText().toString().equals(etValidacion.getText().toString())){
+            etContraseña.setBackgroundColor(Color.RED);
+            etValidacion.setBackgroundColor(Color.RED);
+            validarDate=false;
+        }
+
+        return validarDate;
 
     }
+
 }
