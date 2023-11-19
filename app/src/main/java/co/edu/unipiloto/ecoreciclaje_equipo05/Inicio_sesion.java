@@ -9,6 +9,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+
+
+import co.edu.unipiloto.ecoreciclaje_equipo05.models.User;
+
 public class Inicio_sesion extends AppCompatActivity {
 
     EditText ext_name, ext_password;
@@ -29,6 +38,14 @@ public class Inicio_sesion extends AppCompatActivity {
         Intent regis=new Intent(getApplicationContext(), registro_usuario.class);
         Intent logi=new Intent(getApplicationContext(), Perfil_usuario.class);
 
+
+        File fileUser=new File(getFilesDir(),"user.txt");
+
+        ArrayList<User> users= ListUser(fileUser);
+
+
+
+
         registrarte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,19 +56,73 @@ public class Inicio_sesion extends AppCompatActivity {
         iniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nameText=ext_name.getText().toString();
+                /*String nameText=ext_name.getText().toString();
                 String passwordText=ext_password.getText().toString();
                 if (nameText.isEmpty() || passwordText.isEmpty()){
                     Toast.makeText(getBaseContext(),"Todos los campos deben llenarse",Toast.LENGTH_LONG).show();
                 }
                 else {
                     startActivity(logi);
+                }*/
+
+                boolean state=false;
+                if (ext_name.getText().toString().isEmpty() || ext_password.getText().toString().isEmpty()){
+                    Toast.makeText(getApplicationContext()"todos los campos deben llenarse",Toast.LENGTH_LONG).show();
+                }else {
+                    String userLogin=ext_name.getText().toString();
+                    for (User i:users){
+                        if(i.getEtCorreo().equals(userLogin) || i.getEtCedula().equals(userLogin) || i.getEtNombres().equals(userLogin)){
+                            state=true;
+                            if (i.getEtContraseña().equals(ext_password.getText().toString())){
+                                logi.putExtra("etceduala", i.getEtCedula());
+                                startActivity(logi);
+                                break;
+                            }else{
+                                Toast.makeText(getApplicationContext(), "contraseña incorrecta",Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    }
+                    if (!state){
+                        Toast.makeText(getApplicationContext(),"Usuario no existe",Toast.LENGTH_LONG).show();
+                    }
                 }
+
             }
         });
 
-
-
-
     }
+
+    public ArrayList<User>ListUser(File data){
+        ArrayList<User> list=new ArrayList<>();
+
+        try {
+            FileReader reader=new FileReader(data);
+            BufferedReader bufferedReader=new BufferedReader(reader);
+            String user;
+
+
+            while ((user=bufferedReader.readLine())!=null){
+                String[] userData=user.split(",");
+                String etNombres=userData[0];
+                String etApellidos=userData[0];
+                String etCedula=userData[0];
+                String etCorreo=userData[0];
+                String etContraseña=userData[0];
+
+                User userObject=new User(etNombres,etApellidos,etCedula,etCorreo,etContraseña);
+                list.add(userObject);
+
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+
+
+
+
+
+
 }
