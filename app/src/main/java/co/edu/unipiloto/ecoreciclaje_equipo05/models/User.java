@@ -30,7 +30,7 @@ public class User {
         this.etApellidos = etApellidos;
     }
 
-    public String getEtCedula() {
+    public  String getEtCedula() {
         return etCedula;
     }
 
