@@ -67,14 +67,14 @@ public class Inicio_sesion extends AppCompatActivity {
 
                 boolean state=false;
                 if (ext_name.getText().toString().isEmpty() || ext_password.getText().toString().isEmpty()){
-                    Toast.makeText(getApplicationContext()"todos los campos deben llenarse",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"todos los campos deben llenarse",Toast.LENGTH_LONG).show();
                 }else {
                     String userLogin=ext_name.getText().toString();
                     for (User i:users){
                         if(i.getEtCorreo().equals(userLogin) || i.getEtCedula().equals(userLogin) || i.getEtNombres().equals(userLogin)){
                             state=true;
                             if (i.getEtContraseña().equals(ext_password.getText().toString())){
-                                logi.putExtra("etceduala", i.getEtCedula());
+                                logi.putExtra("etCedula", i.getEtCedula());
                                 startActivity(logi);
                                 break;
                             }else{
@@ -104,10 +104,10 @@ public class Inicio_sesion extends AppCompatActivity {
             while ((user=bufferedReader.readLine())!=null){
                 String[] userData=user.split(",");
                 String etNombres=userData[0];
-                String etApellidos=userData[0];
-                String etCedula=userData[0];
-                String etCorreo=userData[0];
-                String etContraseña=userData[0];
+                String etApellidos=userData[1];
+                String etCedula=userData[2];
+                String etCorreo=userData[3];
+                String etContraseña=userData[4];
 
                 User userObject=new User(etNombres,etApellidos,etCedula,etCorreo,etContraseña);
                 list.add(userObject);

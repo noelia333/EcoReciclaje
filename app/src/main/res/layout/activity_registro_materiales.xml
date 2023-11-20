@@ -51,8 +51,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="393dp"
+        android:layout_height="476dp"
         android:orientation="vertical"
         android:padding="20dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
@@ -89,6 +89,23 @@
             android:layout_height="48dp"
             android:layout_marginTop="4dp"
             android:hint="Ingrese la cantidad del producto" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:layout_marginTop="12dp"
+            android:text="Ingrese el valor del producto"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/Valor"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginTop="4dp"
+            android:hint="Ingresa el Valor del producto por Kg" />
 
         <TextView
             android:id="@+id/textView7"

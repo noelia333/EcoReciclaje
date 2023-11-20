@@ -18,7 +18,7 @@ public class registro_materiales extends AppCompatActivity {
     ImageView imagenRetroceder;
 
     TextView tvTotal;
-    EditText Valorpeso;
+    EditText Valorpeso, Valorprecio;
 
     Button btn_registrar_material;
     Spinner Spi_intem;
@@ -32,6 +32,7 @@ public class registro_materiales extends AppCompatActivity {
         Spi_intem=findViewById(R.id.choose_item);
         tvTotal=findViewById(R.id.tvtotal);
         Valorpeso=findViewById(R.id.Peso);
+        Valorprecio=findViewById(R.id.Valor);
         btn_registrar_material=findViewById(R.id.btn_registe_material);
 
         imagenRetroceder.setOnClickListener(new View.OnClickListener() {
@@ -60,33 +61,34 @@ public class registro_materiales extends AppCompatActivity {
     }
 
     public void calularValor() {
-        int peso;
+        int peso,valor;
         int carton, plastico, vidrio, metales;
         String select;
         peso = Integer.parseInt(Valorpeso.getText().toString());
+        valor = Integer.parseInt(Valorprecio.getText().toString());
 
 
         select = Spi_intem.getSelectedItem().toString();
 
         if (select.equals("Papel y carton")) {
-            carton = 1000 * peso;
+            carton = valor * peso;
             tvTotal.setText(String.valueOf(carton));
 
         } else {
             if (select.equals("Plasticos")) {
                 System.out.println(select);
-                plastico = 2000 * peso;
+                plastico = valor * peso;
                 tvTotal.setText(String.valueOf(plastico));
 
             } else {
                 if (select.equals("Vidrio")) {
                     System.out.println(select);
-                    vidrio = 3000 * peso;
+                    vidrio = valor * peso;
                     tvTotal.setText(String.valueOf(vidrio));
 
                 } else {
                     if (select.equals("Metales")) {
-                        metales = 4000 * peso;
+                        metales = valor * peso;
                         tvTotal.setText(String.valueOf(metales));
                     }
                 }
