@@ -86,6 +86,7 @@ public class Inicio_sesion extends AppCompatActivity {
                                 String nombreUsuario = i.getEtNombres();
                                 logi.putExtra("etCedula", i.getEtCedula());
                                 logi.putExtra("nombreUsuario", nombreUsuario);
+                                logi.putExtra("username", nombreUsuario);
                                 startActivity(logi);
                                 break;
                             }else{
