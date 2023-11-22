@@ -83,7 +83,9 @@ public class Inicio_sesion extends AppCompatActivity {
                         if(i.getEtCorreo().equals(userLogin) || i.getEtCedula().equals(userLogin) || i.getEtNombres().equals(userLogin)){
                             state=true;
                             if (i.getEtContraseña().equals(ext_password.getText().toString())){
+                                String nombreUsuario = i.getEtNombres();
                                 logi.putExtra("etCedula", i.getEtCedula());
+                                logi.putExtra("nombreUsuario", nombreUsuario);
                                 startActivity(logi);
                                 break;
                             }else{
