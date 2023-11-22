@@ -116,12 +116,11 @@ public class Inicio_sesion extends AppCompatActivity {
             while ((user=bufferedReader.readLine())!=null){
                 String[] userData=user.split(",");
                 String etNombres=userData[0];
-                String etApellidos=userData[1];
-                String etCedula=userData[2];
-                String etCorreo=userData[3];
-                String etContraseña=userData[4];
+                String etCedula=userData[1];
+                String etCorreo=userData[2];
+                String etContraseña=userData[3];
 
-                User userObject=new User(etNombres,etApellidos,etCedula,etCorreo,etContraseña);
+                User userObject=new User(etNombres,etCedula,etCorreo,etContraseña);
                 list.add(userObject);
 
             }

@@ -4,11 +4,11 @@ package co.edu.unipiloto.ecoreciclaje_equipo05.models;
 
 public class User {
 
-    private String etNombres, etApellidos, etCedula, etCorreo, etContraseña;
+    private String etNombres, etCedula, etCorreo, etContraseña;
 
-    public User(String etNombres, String etApellidos, String etCedula, String etCorreo, String etContraseña) {
+    public User(String etNombres, String etCedula, String etCorreo, String etContraseña) {
         this.etNombres = etNombres;
-        this.etApellidos = etApellidos;
+
         this.etCedula = etCedula;
         this.etCorreo = etCorreo;
         this.etContraseña = etContraseña;
@@ -22,13 +22,6 @@ public class User {
         this.etNombres = etNombres;
     }
 
-    public String getEtApellidos() {
-        return etApellidos;
-    }
-
-    public void setEtApellidos(String etApellidos) {
-        this.etApellidos = etApellidos;
-    }
 
     public  String getEtCedula() {
         return etCedula;

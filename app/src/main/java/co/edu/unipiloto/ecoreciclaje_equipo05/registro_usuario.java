@@ -27,7 +27,7 @@ import co.edu.unipiloto.ecoreciclaje_equipo05.models.User;
 public class registro_usuario extends AppCompatActivity {
     Button btnRegistrarse;
 
-    EditText etNombres, etApellidos, etCedula, etCorreo, etContraseña, etValidacion;
+    EditText etNombres, etCedula, etCorreo, etContraseña, etValidacion;
 
 
     CheckBox check;
@@ -40,14 +40,12 @@ public class registro_usuario extends AppCompatActivity {
         btnRegistrarse=findViewById(R.id.btn_registrarse);
 
         TextInputLayout nombres = findViewById(R.id.etIngreNombre);
-        TextInputLayout apellidos = findViewById(R.id.etIngreApellidos);
         TextInputLayout cedula = findViewById(R.id.etIngreID);
         TextInputLayout correo = findViewById(R.id.etIngreCorreo);
         TextInputLayout contraseña = findViewById(R.id.etIngreContraseña);
         TextInputLayout validacion = findViewById(R.id.etConfiContraseña);
 
         etNombres = nombres.getEditText();
-        etApellidos = apellidos.getEditText();
         etCedula = cedula.getEditText();
         etCorreo = correo.getEditText();
         etContraseña = contraseña.getEditText();
@@ -118,12 +116,6 @@ public class registro_usuario extends AppCompatActivity {
         } else {
             etNombres.setBackgroundColor(Color.TRANSPARENT);
         }
-        if (etApellidos.getText().toString().isEmpty()){
-            etApellidos.setBackgroundColor(Color.RED);
-            validarDate=false;
-        }else {
-            etApellidos.setBackgroundColor(Color.TRANSPARENT);
-        }
         if (etCedula.getText().toString().isEmpty()){
             etCedula.setBackgroundColor(Color.RED);
             validarDate=false;
@@ -174,12 +166,11 @@ public class registro_usuario extends AppCompatActivity {
         String NombreUser,ApellidosUser, CedulaUser, CorreoUser, ContraseñaUser;
 
         NombreUser=etNombres.getText().toString();
-        ApellidosUser=etApellidos.getText().toString();
         CedulaUser=etCedula.getText().toString();
         CorreoUser=etCorreo.getText().toString();
         ContraseñaUser=etContraseña.getText().toString();
 
-        User user=new User(NombreUser,ApellidosUser,CedulaUser,CorreoUser,ContraseñaUser);
+        User user=new User(NombreUser,CedulaUser,CorreoUser,ContraseñaUser);
 
         return user;
     }
@@ -196,7 +187,6 @@ public class registro_usuario extends AppCompatActivity {
             BufferedWriter bufferedWriter=new BufferedWriter(writer);
             bufferedWriter.write(
                     user.getEtNombres()+","+
-                            user.getEtApellidos()+","+
                             user.getEtCedula()+","+
                             user.getEtCorreo()+","+
                             user.getEtContraseña()

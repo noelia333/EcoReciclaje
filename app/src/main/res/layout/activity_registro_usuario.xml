@@ -18,10 +18,10 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="530dp"
         android:src="@drawable/fondo_blanco"
         android:scaleType="centerCrop"
-        android:paddingTop="140dp"
+        android:paddingTop="210dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:alpha="0.4"
@@ -75,7 +75,7 @@
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ingrese sus nombres"
+            android:hint="Ingrese su nombre completo"
             android:id="@+id/etIngreNombre"
             >
 
@@ -87,22 +87,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Ingrese sus apellidos"
-            android:id="@+id/etIngreApellidos"
-            android:layout_marginTop="5dp"
-            >
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
 
