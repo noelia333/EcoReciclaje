@@ -10,6 +10,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.google.android.material.textfield.TextInputLayout;
+
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -31,8 +34,14 @@ public class Inicio_sesion extends AppCompatActivity {
 
         registrarte=findViewById(R.id.txt_registrate);
         iniciarSesion=findViewById(R.id.btn_iniciar_sesion);
-        ext_name=findViewById(R.id.ext_name);
-        ext_password=findViewById(R.id.ext_password);
+        TextInputLayout name = findViewById(R.id.ext_name);
+        TextInputLayout password = findViewById(R.id.ext_password);
+
+        ext_name = name.getEditText();
+        ext_password = password.getEditText();
+
+        //ext_name=findViewById(R.id.ext_name);
+        //ext_password=findViewById(R.id.ext_password);
 
 
         Intent regis=new Intent(getApplicationContext(), registro_usuario.class);
