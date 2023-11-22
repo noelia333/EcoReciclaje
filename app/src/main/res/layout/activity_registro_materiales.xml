@@ -12,7 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/fondo" />
+        android:src="@drawable/fondo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -50,21 +54,21 @@
         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="393dp"
-        android:layout_height="476dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="152dp"
         android:orientation="vertical"
-        android:padding="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+
+        android:padding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="220dp"
-            android:layout_height="44dp"
+            android:layout_width="160dp"
+            android:layout_height="30dp"
             android:background="#A3D9D9D9"
             android:gravity="center"
             android:text="Registro Materiales"
@@ -73,121 +77,251 @@
             android:textSize="16dp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="26dp"
-            android:layout_marginTop="12dp"
-            android:text="Ingrese la cantidad"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/Peso"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginTop="4dp"
-            android:hint="Ingrese la cantidad del producto" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="26dp"
-            android:layout_marginTop="12dp"
-            android:text="Ingrese el valor del producto"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/Valor"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginTop="4dp"
-            android:hint="Ingresa el Valor del producto por Kg" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Elija el material"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <Spinner
-            android:id="@+id/choose_item"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:entries="@array/material" />
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="Elija el dia"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:entries="@array/dia" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="Elija el mes"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-        <Spinner
-            android:id="@+id/spinner2"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:entries="@array/mes" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Button
-            android:id="@+id/btn_registe_material"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:backgroundTint="#A3C679"
-            android:text="Registre el material"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tvtotal"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="El valor ganado es:" />
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Elija el material"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/choose_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:entries="@array/material" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/etIngreNombre"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:hint="Ingrese cantidad en Kg">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/etIngre"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:hint="Ingrese valor por kilo ">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:text="capturar  de fecha"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Encabezado de la tabla -->
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- Checkbox para eliminación -->
+                    <CheckBox
+                        android:id="@+id/checkEliminarEncabezado"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center_vertical"
+                        android:visibility="invisible"/>
+
+                    <!-- Campos para día, mes, material, cantidad, kg, valor -->
+                    <TextView
+                        android:text="Día"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:text="Mes"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:text="Material"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:text="CantidadKg"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:text="Valor"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"/>
+                </TableRow>
+
+                <!-- Filas de la tabla -->
+                <!-- Puedes agregar más TableRow según sea necesario, ya sea en el diseño o dinámicamente en tiempo de ejecución -->
+
+                <!-- Ejemplo de fila 1 -->
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- Checkbox para eliminación -->
+                    <CheckBox
+                        android:id="@+id/checkEliminarFila1"
+                        android:layout_width="30dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"/>
+
+                    <!-- Campos para día, mes, material, cantidad, kg, valor -->
+                    <TextView
+                        android:id="@+id/tvDia"
+                        android:text="-"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/tvMes"
+                        android:text="-"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/tvMaterial"
+                        android:text="-"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/tvCantidad"
+                        android:text="-"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/tvValor"
+                        android:text="-"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"/>
+                </TableRow>
+
+            </TableLayout>
+
+
+        </ScrollView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvtotal"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="220dp"
+                android:text="El valor ganado es                     $"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="220dp"
+                android:text="valor"
+                android:textStyle="bold"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="20dp">
+
+
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#009688"
+                android:text="Agregar"
+                android:textColor="@color/black" />
+
+            <Space
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Eliminar"
+                android:backgroundTint="#A8170C"/>
+        </LinearLayout>
 
     </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
