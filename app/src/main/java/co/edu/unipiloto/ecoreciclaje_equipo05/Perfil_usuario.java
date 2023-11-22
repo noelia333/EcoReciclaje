@@ -19,6 +19,16 @@ public class Perfil_usuario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil_usuario);
+        //captura nombre usuario
+        Intent intent = getIntent();
+        if (intent != null && intent.hasExtra("username")) {
+            String username = intent.getStringExtra("username");
+
+            // Establecer el nombre de usuario en el TextView
+            TextView textViewUsername = findViewById(R.id.textView22);
+            textViewUsername.setText(username);
+        }
+
 
 
         // IMAGEN CONSEJOS
