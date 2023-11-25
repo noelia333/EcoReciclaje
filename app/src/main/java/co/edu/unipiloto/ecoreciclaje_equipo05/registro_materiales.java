@@ -211,33 +211,34 @@ public class registro_materiales extends AppCompatActivity {
     }
 
     private void addRow(String dia, String mes, String material, String cantidadKg, String valorKG) {
-        TableRow newRow = new TableRow(this);
-        newRow.setLayoutParams(new TableLayout.LayoutParams(
-                TableLayout.LayoutParams.MATCH_PARENT,
-                TableLayout.LayoutParams.WRAP_CONTENT));
+        try {
+            double valor = Double.parseDouble(valorKG);
+            valorTotal += valor;
 
-        newRow.addView(createTextView(dia, false));
-        newRow.addView(createTextView(mes, false));
-        newRow.addView(createTextView(material, false));
-        newRow.addView(createTextView(cantidadKg, false));
-        newRow.addView(createTextView(valorKG, false));
+            TableRow newRow = new TableRow(this);
+            newRow.setLayoutParams(new TableLayout.LayoutParams(
+                    TableLayout.LayoutParams.MATCH_PARENT,
+                    TableLayout.LayoutParams.WRAP_CONTENT));
 
-        // Añadir imagen de la caneca de basura
-        ImageView deleteIcon = createDeleteIcon();
-        newRow.addView(deleteIcon);
+            newRow.addView(createTextView(dia, false));
+            newRow.addView(createTextView(mes, false));
+            newRow.addView(createTextView(material, false));
+            newRow.addView(createTextView(cantidadKg, false));
+            newRow.addView(createTextView(valorKG, false));
 
-        // Establecer clic en la fila para resaltarla
-        setTableRowClickListener(newRow);
+            ImageView deleteIcon = createDeleteIcon();
+            newRow.addView(deleteIcon);
 
-        tabla.addView(newRow);
+            setTableRowClickListener(newRow);
 
-        double valor = Double.parseDouble(valorKG);
-        valorTotal += valor;
+            tabla.addView(newRow);
 
-        // Actualizar el TextView con el nuevo valor total
-        TextView tvValorTotal = findViewById(R.id.tvValorTotal);
-        tvValorTotal.setText("Valor total: " + String.valueOf(valorTotal));
-
+            TextView tvValorTotal = findViewById(R.id.tvValorTotal);
+            tvValorTotal.setText("Valor total: " + String.valueOf(valorTotal));
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Error al convertir a número: " + valorKG, Toast.LENGTH_SHORT).show();
+        }
     }
 
     private ImageView createDeleteIcon() {
@@ -371,4 +372,3 @@ public class registro_materiales extends AppCompatActivity {
         }
     }
 }
-
