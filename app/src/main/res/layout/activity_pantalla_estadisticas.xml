@@ -132,7 +132,7 @@
 
 
             <ImageView
-                android:id="@+id/imgpPlastico"
+                android:id="@+id/imgPlastico"
                 android:layout_width="100dp"
                 android:layout_height="80dp"
                 android:layout_marginEnd="10dp"
@@ -140,7 +140,7 @@
                 android:src="@drawable/plastico1" />
 
             <ImageView
-                android:id="@+id/imgvidrio"
+                android:id="@+id/imgVidrio"
                 android:layout_width="100dp"
                 android:layout_height="80dp"
                 android:layout_marginEnd="10dp"
@@ -164,7 +164,7 @@
             android:paddingStart="40dp">
 
             <TextView
-                android:id="@+id/textView31"
+                android:id="@+id/tvnameMetales"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Metales"
@@ -172,7 +172,7 @@
                 android:layout_marginEnd="40dp"/>
 
             <TextView
-                android:id="@+id/textView32"
+                android:id="@+id/tvnamePlastico"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Plastico"
@@ -180,7 +180,7 @@
                 android:layout_marginEnd="40dp"/>
 
             <TextView
-                android:id="@+id/textView33"
+                android:id="@+id/tvnameVidrio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Vidrio"
@@ -188,7 +188,7 @@
                 android:layout_marginEnd="30dp"/>
 
             <TextView
-                android:id="@+id/textView34"
+                android:id="@+id/tvnameCartonPapel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Carton y papel"
