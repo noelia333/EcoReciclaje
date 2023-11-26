@@ -8,17 +8,29 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Locale;
+
 public class Perfil_usuario extends AppCompatActivity {
 
     ImageView imvConsejos,imvMaterialReciclable,imvEstadistica;
 
-    TextView tvConsejos,tvMaterialRecicable,tvEstadistica;
+    TextView tvConsejos,tvMaterialRecicable,tvEstadistica, tvTotalTodosKg;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil_usuario);
+
+        tvTotalTodosKg = findViewById(R.id.tw0000);
+
+        // Mostrar la suma total de kg al iniciar la aplicación
+        mostrarTotalTodosKg();
+
         //captura nombre usuario
         Intent intent = getIntent();
         if (intent != null && intent.hasExtra("username")) {
@@ -103,4 +115,35 @@ public class Perfil_usuario extends AppCompatActivity {
 
 
     }
+    private void mostrarTotalTodosKg() {
+        File materialsFile = new File(getFilesDir(), "materials.txt");
+
+        if (materialsFile.exists()) {
+            try {
+                BufferedReader reader = new BufferedReader(new FileReader(materialsFile));
+                String line;
+                double totalTodosKg = 0.0;
+
+                while ((line = reader.readLine()) != null) {
+                    String[] datos = line.split(",");
+                    if ("Plástico".equals(datos[2].trim()) || "Metal".equals(datos[2].trim()) ||
+                            "Vidrio".equals(datos[2].trim()) || "Papel y Cartón".equals(datos[2].trim())) {
+                        totalTodosKg += Double.parseDouble(datos[3].trim());
+                    }
+                }
+
+                reader.close();
+
+                // Muestra el resultado en el TextView
+                tvTotalTodosKg.setText(String.format(Locale.getDefault(), "%.2f", totalTodosKg));
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            // Log.d("MostrarTotalTodosKg", "El archivo no existe en la ubicación esperada.");
+        }
+    }
+
+    // Resto de tu código...
 }
