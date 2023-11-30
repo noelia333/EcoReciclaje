@@ -3,6 +3,7 @@ package co.edu.unipiloto.ecoreciclaje_equipo05;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,11 +15,16 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Locale;
 
+
 public class Perfil_usuario extends AppCompatActivity {
 
-    ImageView imvConsejos,imvMaterialReciclable,imvEstadistica;
+
+
+    ImageView imvConsejos,imvMaterialReciclable,imvEstadistica, imgSalida;
 
     TextView tvConsejos,tvMaterialRecicable,tvEstadistica, tvTotalTodosKg;
+
+    private String username;
 
 
     @Override
@@ -27,6 +33,8 @@ public class Perfil_usuario extends AppCompatActivity {
         setContentView(R.layout.activity_perfil_usuario);
 
         tvTotalTodosKg = findViewById(R.id.tw0000);
+        imgSalida= findViewById(R.id.imgSalida);
+
 
         // Mostrar la suma total de kg al iniciar la aplicación
         mostrarTotalTodosKg();
@@ -34,11 +42,13 @@ public class Perfil_usuario extends AppCompatActivity {
         //captura nombre usuario
         Intent intent = getIntent();
         if (intent != null && intent.hasExtra("username")) {
-            String username = intent.getStringExtra("username");
-
-            // Establecer el nombre de usuario en el TextView
-            TextView textViewUsername = findViewById(R.id.textView22);
-            textViewUsername.setText(username);
+            username = intent.getStringExtra("username");
+            guardarNombreUsuario(username);  // Guardar el nombre de usuario en SharedPreferences
+            establecerTextViewUsername(username);  // Establecer el nombre de usuario en el TextView
+        } else {
+            // Si no se pasa un nombre de usuario, intenta recuperarlo de SharedPreferences
+            username = getNombreUsuarioDesdePreferencias();
+            establecerTextViewUsername(username);
         }
 
 
@@ -111,9 +121,13 @@ public class Perfil_usuario extends AppCompatActivity {
             }
         });
 
-
-
-
+        imgSalida.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cerarSesion= new Intent(getApplicationContext(), Inicio_sesion.class);
+                startActivity(cerarSesion);
+            }
+        });
     }
     private void mostrarTotalTodosKg() {
         File materialsFile = new File(getFilesDir(), "materials.txt");
@@ -145,5 +159,25 @@ public class Perfil_usuario extends AppCompatActivity {
         }
     }
 
-    // Resto de tu código...
+    private void guardarNombreUsuario(String username) {
+        SharedPreferences preferencias = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferencias.edit();
+        editor.putString("username", username);
+        editor.apply();
+    }
+
+    private String getNombreUsuarioDesdePreferencias() {
+        SharedPreferences preferencias = getPreferences(MODE_PRIVATE);
+        return preferencias.getString("username", "");
+    }
+
+    private void establecerTextViewUsername(String username) {
+        TextView textViewUsername = findViewById(R.id.textView22);
+        textViewUsername.setText(username);
+    }
+
+
+
+
+
 }
